@@ -701,7 +701,15 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   align-items: start;
 }
 .mission__left { position: sticky; top: 130px; }
-.mission__right p { color: #bdb0a3; margin: 0 0 20px; }
+.mission__right {
+  padding: clamp(24px, 3vw, 42px);
+  border: 1px solid rgba(250, 245, 239, 0.12);
+  border-radius: 20px;
+  background: rgba(10, 8, 6, 0.94);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+.mission__right p { color: #d8cbbd; margin: 0 0 20px; }
+.mission__right p:last-child { margin-bottom: 0; }
 
 /* ============================================================
    11. Programs
