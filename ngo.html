@@ -1146,6 +1146,44 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 .donate__secure svg { width: 14px; height: 14px; }
 
 /* ============================================================
+   16. Contact
+   ============================================================ */
+.contact__panel {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: clamp(30px, 6vw, 84px);
+  padding: clamp(30px, 5vw, 64px);
+  border: 1px solid var(--line-2);
+  border-radius: 28px;
+  background: #0d0a08;
+}
+.contact__intro p { color: #d8cbbd; max-width: 42ch; }
+.contact__details { display: grid; gap: 14px; margin-top: 30px; }
+.contact__details a { color: var(--cream); font-size: 14px; }
+.contact__details a:hover { color: var(--amber); }
+.contact__form { display: grid; gap: 14px; }
+.contact__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.contact__field { display: grid; gap: 7px; }
+.contact__field label { color: var(--muted); font-size: 11px; letter-spacing: 0.13em; text-transform: uppercase; }
+.contact__field input,
+.contact__field textarea {
+  width: 100%;
+  border: 1px solid var(--line-2);
+  border-radius: 12px;
+  padding: 13px 15px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--ink);
+  outline: none;
+  resize: vertical;
+}
+.contact__field textarea { min-height: 120px; }
+.contact__field input:focus,
+.contact__field textarea:focus { border-color: rgba(245, 165, 36, 0.7); background: rgba(255, 255, 255, 0.07); }
+.contact__field input::placeholder,
+.contact__field textarea::placeholder { color: #827366; }
+.contact__status { min-height: 1.2em; margin: 0; color: var(--amber); font-size: 13px; }
+
+/* ============================================================
    16. Footer
    ============================================================ */
 .footer {
@@ -1300,6 +1338,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   .section-head--split { grid-template-columns: 1fr; gap: 20px; align-items: start; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .donate__panel { grid-template-columns: 1fr; }
+  .contact__panel { grid-template-columns: 1fr; gap: 34px; }
   .hero__title { max-width: 100%; }
   .programs__grid { grid-template-columns: 1fr; gap: 20px; }
   .program { min-height: auto; }
@@ -1338,6 +1377,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   .impact-picker { grid-template-columns: 1fr; }
   .showreel__caption { flex-direction: column; align-items: flex-start; }
   .hero__partners ul { flex-wrap: wrap; gap: 16px 22px; }
+  .contact__row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
@@ -1378,6 +1418,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
       <a href="#impact" data-scroll-to="#impact">Impact</a>
       <a href="#stories" data-scroll-to="#stories">Stories</a>
       <a href="#showreel" data-scroll-to="#showreel">Watch</a>
+      <a href="#contact" data-scroll-to="#contact">Contact</a>
     </nav>
 
     <div class="header__actions">
@@ -1396,6 +1437,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
     <a href="#impact" data-scroll-to="#impact">Impact</a>
     <a href="#stories" data-scroll-to="#stories">Stories</a>
     <a href="#showreel" data-scroll-to="#showreel">Watch</a>
+    <a href="#contact" data-scroll-to="#contact">Contact</a>
     <a href="#donate" data-scroll-to="#donate" class="mobile-menu__cta">Donate</a>
   </nav>
 </div>
@@ -1871,6 +1913,46 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
     </div>
   </section>
 
+  <!-- ============ CONTACT ============ -->
+  <section class="section contact" id="contact" data-scroll-section>
+    <div class="container">
+      <div class="contact__panel" data-scroll data-scroll-repeat>
+        <div class="contact__intro">
+          <span class="eyebrow">Contact us</span>
+          <h2 class="display display--sm">Let’s talk about <em>doing good.</em></h2>
+          <p>Share your question, volunteering idea, or partnership proposal. Your message will open directly in WhatsApp.</p>
+          <div class="contact__details">
+            <a href="tel:+917561999167">+91 75619 99167</a>
+            <a href="https://wa.me/917561999167" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+          </div>
+        </div>
+
+        <form class="contact__form" id="contactForm" novalidate>
+          <div class="contact__row">
+            <div class="contact__field">
+              <label for="contactName">Name</label>
+              <input id="contactName" name="name" type="text" required maxlength="80" placeholder="Your name" autocomplete="name" />
+            </div>
+            <div class="contact__field">
+              <label for="contactPhone">Phone</label>
+              <input id="contactPhone" name="phone" type="tel" required maxlength="25" placeholder="Your phone number" autocomplete="tel" />
+            </div>
+          </div>
+          <div class="contact__field">
+            <label for="contactEmail">Email</label>
+            <input id="contactEmail" name="email" type="email" required maxlength="254" placeholder="you@email.com" autocomplete="email" />
+          </div>
+          <div class="contact__field">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" name="message" required maxlength="1200" placeholder="How can we help?"></textarea>
+          </div>
+          <button class="btn btn--primary" type="submit">Send on WhatsApp</button>
+          <p class="contact__status" id="contactStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FOOTER ============ -->
   <footer class="footer" data-scroll-section>
     <div class="container">
@@ -1891,6 +1973,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
           <a href="#programs" data-scroll-to="#programs">Programs</a>
           <a href="#impact" data-scroll-to="#impact">Impact</a>
           <a href="#stories" data-scroll-to="#stories">Field notes</a>
+          <a href="#contact" data-scroll-to="#contact">Contact</a>
         </div>
 
         <div class="footer__col">
@@ -2377,6 +2460,36 @@ if (playBtn && showreelVideo) {
 /* ================================================================
    10. Newsletter form — validated, no injection
    ================================================================ */
+const contactForm = document.getElementById('contactForm');
+const contactStatus = document.getElementById('contactStatus');
+
+if (contactForm) {
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const formData = new FormData(contactForm);
+    const name = String(formData.get('name') || '').trim();
+    const phone = String(formData.get('phone') || '').trim();
+    const email = String(formData.get('email') || '').trim();
+    const message = String(formData.get('message') || '').trim();
+
+    if (!name || !phone || !SEC.isEmail(email) || !message) {
+      if (contactStatus) contactStatus.textContent = 'Please complete every field with a valid email.';
+      return;
+    }
+
+    const whatsappText = [
+      'Hello Aasha Foundation,',
+      '',
+      `Name: ${name}`,
+      `Phone: ${phone}`,
+      `Email: ${email}`,
+      `Message: ${message}`,
+    ].join('\n');
+
+    window.location.href = `https://wa.me/917561999167?text=${encodeURIComponent(whatsappText)}`;
+  });
+}
+
 const newsletterForm = document.getElementById('newsletterForm');
 const newsletterStatus = document.getElementById('newsletterStatus');
 
