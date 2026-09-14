@@ -1293,18 +1293,23 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 }
 
 @media (max-width: 760px) {
-  body::before {
-    background:
-      radial-gradient(80% 28% at 90% 8%, rgba(245, 165, 36, 0.08), transparent 70%),
-      radial-gradient(75% 30% at 5% 72%, rgba(255, 120, 71, 0.06), transparent 70%);
-  }
-  body::after { opacity: 0.1; }
-  #three-canvas { opacity: 0.38; }
+  body::before { display: none; }
+  body::after { display: none; }
+  #three-canvas { display: none !important; }
+  .section,
+  .strip { background: #0d0a08; }
   .section { padding-block: 76px; }
-  .section::before { background: rgba(10, 8, 6, 0.42); }
+  .section::before { display: none; }
+  .hero__aurora { opacity: 0.18; filter: blur(36px); }
+  .hero__vignette {
+    background: linear-gradient(180deg, rgba(10, 8, 6, 0.76), rgba(10, 8, 6, 0.22) 42%, rgba(10, 8, 6, 0.9));
+  }
   .mission__right p,
   .section-head__note,
-  .donate__left p { color: #d7cabe; }
+  .donate__left p { color: #e0d5c9; }
+  .program__text,
+  .stat__note,
+  .story figcaption span { color: #c9bbad; }
   .stories__grid { grid-template-columns: 1fr; gap: 30px; }
   .hero { min-height: auto; padding-block: 128px 76px; }
   .hero__title { font-size: clamp(40px, 12vw, 64px); line-height: 0.98; }
