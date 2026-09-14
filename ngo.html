@@ -917,7 +917,35 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 .story figcaption span { font-size: 12.5px; color: var(--muted); }
 
 /* ============================================================
-   14. Showreel
+  14. Gallery
+  ============================================================ */
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 150px;
+  gap: 14px;
+}
+.gallery__item {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #100b07;
+}
+.gallery__item:nth-child(1) { grid-column: span 5; grid-row: span 3; }
+.gallery__item:nth-child(2) { grid-column: span 4; grid-row: span 2; }
+.gallery__item:nth-child(3) { grid-column: span 3; grid-row: span 3; }
+.gallery__item:nth-child(4) { grid-column: span 4; grid-row: span 2; }
+.gallery__item:nth-child(5) { grid-column: span 4; grid-row: span 2; }
+.gallery__item:nth-child(6) { grid-column: span 4; grid-row: span 2; }
+.gallery__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease), filter 0.6s ease; filter: saturate(0.88); }
+.gallery__item:hover img { transform: scale(1.07); filter: saturate(1.08); }
+.gallery__item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 45%, rgba(10, 8, 6, 0.78)); pointer-events: none; }
+.gallery__caption { position: absolute; left: 18px; bottom: 16px; z-index: 1; color: var(--cream); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+
+/* ============================================================
+  15. Showreel
    ============================================================ */
 .showreel { position: relative; padding-block: clamp(80px, 12vh, 160px); }
 .showreel__head { text-align: center; max-width: 720px; margin: 0 auto clamp(48px, 6vw, 76px); }
@@ -1401,6 +1429,10 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   .showreel__caption { flex-direction: column; align-items: flex-start; }
   .hero__partners ul { flex-wrap: wrap; gap: 16px 22px; }
   .contact__row { grid-template-columns: 1fr; }
+  .gallery__grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; }
+  .gallery__item:nth-child(n) { grid-column: span 1; grid-row: span 2; }
+  .gallery__item:nth-child(1),
+  .gallery__item:nth-child(4) { grid-column: span 2; }
 }
 
 @media (max-width: 480px) {
@@ -1440,6 +1472,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
       <a href="#programs" data-scroll-to="#programs">Programs</a>
       <a href="#impact" data-scroll-to="#impact">Impact</a>
       <a href="#stories" data-scroll-to="#stories">Stories</a>
+      <a href="#gallery" data-scroll-to="#gallery">Gallery</a>
       <a href="#showreel" data-scroll-to="#showreel">Watch</a>
       <a href="#contact" data-scroll-to="#contact">Contact</a>
     </nav>
@@ -1459,6 +1492,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
     <a href="#programs" data-scroll-to="#programs">Programs</a>
     <a href="#impact" data-scroll-to="#impact">Impact</a>
     <a href="#stories" data-scroll-to="#stories">Stories</a>
+    <a href="#gallery" data-scroll-to="#gallery">Gallery</a>
     <a href="#showreel" data-scroll-to="#showreel">Watch</a>
     <a href="#contact" data-scroll-to="#contact">Contact</a>
     <a href="#donate" data-scroll-to="#donate" class="mobile-menu__cta">Donate</a>
@@ -1813,6 +1847,46 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
               <span>Kitchen lead, Nairobi</span>
             </figcaption>
           </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GALLERY ============ -->
+  <section class="section gallery" id="gallery" data-scroll-section>
+    <div class="container">
+      <header class="section-head section-head--split">
+        <div>
+          <span class="eyebrow" data-scroll data-scroll-repeat>Gallery</span>
+          <h2 class="display display--sm" data-scroll data-scroll-repeat>Small moments. <em>Real change.</em></h2>
+        </div>
+        <p class="section-head__note" data-scroll data-scroll-repeat>Classrooms, community kitchens, and the people who make Aasha possible.</p>
+      </header>
+
+      <div class="gallery__grid">
+        <figure class="gallery__item" data-scroll data-scroll-repeat>
+          <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=900&q=75&auto=format&fit=crop" alt="Children learning together" loading="lazy" decoding="async" referrerpolicy="no-referrer" crossorigin="anonymous" />
+          <figcaption class="gallery__caption">Learning together</figcaption>
+        </figure>
+        <figure class="gallery__item" data-scroll data-scroll-repeat>
+          <img src="https://images.unsplash.com/photo-1447452001602-7090c7ab2db3?w=900&q=75&auto=format&fit=crop" alt="Elder receiving care" loading="lazy" decoding="async" referrerpolicy="no-referrer" crossorigin="anonymous" />
+          <figcaption class="gallery__caption">Dignity at every age</figcaption>
+        </figure>
+        <figure class="gallery__item" data-scroll data-scroll-repeat>
+          <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=900&q=75&auto=format&fit=crop" alt="Child smiling at school" loading="lazy" decoding="async" referrerpolicy="no-referrer" crossorigin="anonymous" />
+          <figcaption class="gallery__caption">A brighter tomorrow</figcaption>
+        </figure>
+        <figure class="gallery__item" data-scroll data-scroll-repeat>
+          <img src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?w=900&q=75&auto=format&fit=crop" alt="Volunteers preparing meals" loading="lazy" decoding="async" referrerpolicy="no-referrer" crossorigin="anonymous" />
+          <figcaption class="gallery__caption">Neighbours helping neighbours</figcaption>
+        </figure>
+        <figure class="gallery__item" data-scroll data-scroll-repeat>
+          <img src="https://images.unsplash.com/photo-1516307365426-bea591f05011?w=900&q=75&auto=format&fit=crop" alt="Elder enjoying a warm meal" loading="lazy" decoding="async" referrerpolicy="no-referrer" crossorigin="anonymous" />
+          <figcaption class="gallery__caption">Warm meals, shared daily</figcaption>
+        </figure>
+        <figure class="gallery__item" data-scroll data-scroll-repeat>
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=900&q=75&auto=format&fit=crop" alt="Students in a classroom" loading="lazy" decoding="async" referrerpolicy="no-referrer" crossorigin="anonymous" />
+          <figcaption class="gallery__caption">Room to grow</figcaption>
         </figure>
       </div>
     </div>
