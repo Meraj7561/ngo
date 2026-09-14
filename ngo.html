@@ -1209,6 +1209,17 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   min-height: 20px; margin: 0 0 18px;
   font-weight: 500;
 }
+.impact-calculator {
+  display: grid;
+  gap: 5px;
+  margin: 4px 0 18px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--amber);
+  border-radius: 0 14px 14px 0;
+  background: linear-gradient(90deg, rgba(245, 165, 36, 0.12), rgba(245, 165, 36, 0.025));
+}
+.impact-calculator span { color: var(--muted); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+.impact-calculator strong { color: var(--cream); font-family: var(--font-display); font-size: 21px; font-weight: 400; line-height: 1.2; }
 .donate__secure {
   display: flex; align-items: center; justify-content: center;
   gap: 8px; margin: 16px 0 0;
@@ -2078,6 +2089,11 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 
           <p class="amounts__note" id="amountNote" aria-live="polite">One month of school + meals for a child</p>
 
+          <div class="impact-calculator" aria-live="polite">
+            <span>Your gift can provide</span>
+            <strong id="impactResult">School and meals for one child</strong>
+          </div>
+
           <button class="btn btn--primary btn--full" type="button" id="giveBtn">Give ₹5,000 / month</button>
 
           <p class="donate__secure">
@@ -2595,6 +2611,7 @@ counters.forEach((c) => counterObs.observe(c));
 const amountButtons = document.querySelectorAll('#amounts button');
 const customInput = document.getElementById('customAmount');
 const amountNote = document.getElementById('amountNote');
+const impactResult = document.getElementById('impactResult');
 const giveBtn = document.getElementById('giveBtn');
 const toggleButtons = document.querySelectorAll('.toggle button');
 const impactButtons = document.querySelectorAll('#impactPicker button');
@@ -2625,6 +2642,25 @@ let monthly = true;
 let selectedAmount = 5000;
 let customAmountStr = '';
 
+function getImpactResult(area, amount) {
+  if (area === 'elders') {
+    if (amount >= 42000) return 'Fresh meals and medicine for 5 elders for a month';
+    if (amount >= 12500) return 'Food and medicine for one elder for a month';
+    if (amount >= 5000) return 'Daily meals for one elder for a month';
+    return '20 warm meals for an elder';
+  }
+  if (area === 'childSupport') {
+    if (amount >= 42000) return 'School support for another child for a full year';
+    if (amount >= 12500) return 'Tuition and meals for another child for a term';
+    if (amount >= 5000) return 'Learning support for another child for a month';
+    return 'School supplies for another child';
+  }
+  if (amount >= 42000) return 'A whole classroom supported for a week';
+  if (amount >= 12500) return 'A full school term for one child';
+  if (amount >= 5000) return 'School and meals for one child for a month';
+  return 'Books and notebooks for a child';
+}
+
 function updateDonateUI() {
   const customVal = customAmountStr ? SEC.clampAmount(customAmountStr) : 0;
   const active = customVal || selectedAmount;
@@ -2632,6 +2668,7 @@ function updateDonateUI() {
     ? 'Thank you — every bit counts.'
     : (NOTES[impact][selectedAmount] || 'A gift of any size moves the work forward.');
   if (amountNote) amountNote.textContent = note;
+  if (impactResult) impactResult.textContent = getImpactResult(impact, active);
   if (giveBtn) {
     const prefix = monthly ? 'Give' : 'Donate';
     const suffix = monthly ? ' / month' : '';
