@@ -1244,6 +1244,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 .custom-amount input[type='number'] { -moz-appearance: textfield; appearance: textfield; }
 
 .donor-details { margin: 16px 0 14px; }
+.donor-details.is-hidden { display: none; }
 .donor-details label {
   display: block;
   margin-bottom: 7px;
@@ -1285,6 +1286,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   font-size: 17px;
   font-style: italic;
 }
+.donor-message.is-editable { cursor: pointer; }
 
 .amounts__note {
   font-size: 13px; color: var(--amber);
@@ -2217,7 +2219,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
             </div>
           </div>
 
-          <p class="donor-message" id="donorMessage" aria-live="polite">Your kindness can change a life today.</p>
+          <p class="donor-message" id="donorMessage" role="button" tabindex="0" aria-label="Edit your name" aria-live="polite">Your kindness can change a life today.</p>
 
           <p class="amounts__note" id="amountNote" aria-live="polite">One month of school + meals for a child</p>
 
@@ -2818,7 +2820,33 @@ function updateDonateUI() {
   }
 }
 
-if (donorNameInput) donorNameInput.addEventListener('input', updateDonateUI);
+function showDonorNameInput() {
+  const donorDetails = document.querySelector('.donor-details');
+  donorDetails?.classList.remove('is-hidden');
+  donorMessage?.classList.remove('is-editable');
+  donorNameInput?.focus();
+}
+
+if (donorNameInput) {
+  donorNameInput.addEventListener('input', updateDonateUI);
+  donorNameInput.addEventListener('blur', () => {
+    if (!donorNameInput.value.trim()) return;
+    document.querySelector('.donor-details')?.classList.add('is-hidden');
+    donorMessage?.classList.add('is-editable');
+  });
+}
+
+if (donorMessage) {
+  donorMessage.addEventListener('click', () => {
+    if (donorNameInput?.value.trim()) showDonorNameInput();
+  });
+  donorMessage.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      if (donorNameInput?.value.trim()) showDonorNameInput();
+    }
+  });
+}
 
 amountButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
