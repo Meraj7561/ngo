@@ -9,7 +9,7 @@
      ============================================================ -->
 <meta http-equiv="Content-Security-Policy" content="
   default-src 'self';
-  script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com;
+  script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://checkout.razorpay.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
   font-src https://fonts.gstatic.com;
   img-src 'self' data: blob: https:;
@@ -2433,6 +2433,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
         integrity="sha384-WqXzS0RTnD1FRMYnBBA9hC9FbA2+dpJK5xQxPbbX4XpWqEnV8qYCPHkPLmCL2GCm"
         crossorigin="anonymous"
         referrerpolicy="no-referrer"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js" defer></script>
 
 <script type="importmap">
 {
@@ -2691,6 +2692,7 @@ const impactResult = document.getElementById('impactResult');
 const giveBtn = document.getElementById('giveBtn');
 const toggleButtons = document.querySelectorAll('.toggle button');
 const impactButtons = document.querySelectorAll('#impactPicker button');
+const RAZORPAY_KEY_ID = 'rzp_test_REPLACE_WITH_YOUR_KEY_ID';
 
 const NOTES = {
   children: {
@@ -2811,10 +2813,32 @@ updateDonateUI();
 
 if (giveBtn) {
   giveBtn.addEventListener('click', () => {
-    // In production this would open a secure checkout session.
-    // We never handle card data client-side.
     const amount = customAmountStr ? SEC.clampAmount(customAmountStr) : selectedAmount;
-    console.log('[Aasha] Redirecting to secure checkout:', { impact, monthly, amount });
+    if (RAZORPAY_KEY_ID.includes('REPLACE_WITH_YOUR_KEY_ID')) {
+      window.alert('Razorpay is ready. Add your Razorpay Key ID in ngo.html to enable payments.');
+      return;
+    }
+    if (typeof window.Razorpay !== 'function') {
+      window.alert('Razorpay Checkout could not load. Check your internet connection and try again.');
+      return;
+    }
+
+    const checkout = new window.Razorpay({
+      key: RAZORPAY_KEY_ID,
+      amount: amount * 100,
+      currency: 'INR',
+      name: 'Aasha Foundation',
+      description: `${monthly ? 'Monthly' : 'One-time'} ${impact} donation`,
+      image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=128&h=128&q=80&fit=crop',
+      handler: (response) => {
+        window.alert(`Payment received. Reference: ${response.razorpay_payment_id}`);
+      },
+      prefill: { name: '', email: '', contact: '' },
+      notes: { impact, frequency: monthly ? 'monthly' : 'one-time' },
+      theme: { color: '#f5a524' },
+      modal: { ondismiss: () => { giveBtn.focus(); } },
+    });
+    checkout.open();
   });
 }
 
