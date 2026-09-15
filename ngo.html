@@ -917,7 +917,46 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 .story figcaption span { font-size: 12.5px; color: var(--muted); }
 
 /* ============================================================
-  14. Gallery
+   14. Team
+   ============================================================ */
+.team__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.team-card {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.025);
+  transition: border-color 0.4s ease, transform 0.4s var(--ease);
+}
+.team-card:hover { border-color: rgba(245, 165, 36, 0.45); transform: translateY(-4px); }
+.team-card__media { aspect-ratio: 4 / 4.6; overflow: hidden; background: #17100b; }
+.team-card__media img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(0.82);
+  transition: transform 0.7s var(--ease), filter 0.7s ease;
+}
+.team-card:hover .team-card__media img { transform: scale(1.04); filter: saturate(1); }
+.team-card__body { padding: 22px 22px 24px; }
+.team-card__body strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--cream);
+}
+.team-card__body span {
+  display: block;
+  margin-top: 7px;
+  color: var(--amber);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+  15. Gallery
   ============================================================ */
 .gallery__grid {
   display: grid;
@@ -1471,6 +1510,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   .stat__note,
   .story figcaption span { color: #c9bbad; }
   .stories__grid { grid-template-columns: 1fr; gap: 30px; }
+  .team__grid { grid-template-columns: 1fr; gap: 30px; }
   .hero { min-height: auto; padding-block: 128px 76px; }
   .hero__title { font-size: clamp(40px, 12vw, 64px); line-height: 0.98; }
   .hero__sub { max-width: 38ch; margin-bottom: 28px; }
@@ -1533,6 +1573,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
       <a href="#programs" data-scroll-to="#programs">Programs</a>
       <a href="#impact" data-scroll-to="#impact">Impact</a>
       <a href="#stories" data-scroll-to="#stories">Stories</a>
+      <a href="#team" data-scroll-to="#team">Team</a>
       <a href="#gallery" data-scroll-to="#gallery">Gallery</a>
       <a href="#faq" data-scroll-to="#faq">FAQ</a>
       <a href="#volunteer" data-scroll-to="#volunteer">Volunteer</a>
@@ -1555,6 +1596,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
     <a href="#programs" data-scroll-to="#programs">Programs</a>
     <a href="#impact" data-scroll-to="#impact">Impact</a>
     <a href="#stories" data-scroll-to="#stories">Stories</a>
+    <a href="#team" data-scroll-to="#team">Team</a>
     <a href="#gallery" data-scroll-to="#gallery">Gallery</a>
     <a href="#faq" data-scroll-to="#faq">FAQ</a>
     <a href="#volunteer" data-scroll-to="#volunteer">Volunteer</a>
@@ -1911,6 +1953,40 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
               <span>Kitchen lead, Nairobi</span>
             </figcaption>
           </div>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TEAM ============ -->
+  <section class="section team" id="team" data-scroll-section>
+    <div class="container">
+      <header class="section-head section-head--split">
+        <div>
+          <span class="eyebrow" data-scroll data-scroll-repeat>Our team</span>
+          <h2 class="display display--sm" data-scroll data-scroll-repeat>People behind <em>the promise.</em></h2>
+        </div>
+        <p class="section-head__note" data-scroll data-scroll-repeat>Local leaders and lifelong advocates keeping every classroom and community kitchen moving.</p>
+      </header>
+
+      <div class="team__grid">
+        <figure class="team-card" data-scroll data-scroll-repeat>
+          <div class="team-card__media">
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80&auto=format&fit=crop" alt="Maya Patel, founder and director" loading="lazy" decoding="async" referrerpolicy="no-referrer" crossorigin="anonymous" />
+          </div>
+          <figcaption class="team-card__body"><strong>Maya Patel</strong><span>Founder &amp; Director</span></figcaption>
+        </figure>
+        <figure class="team-card" data-scroll data-scroll-repeat>
+          <div class="team-card__media">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80&auto=format&fit=crop" alt="Daniel Okafor, programs lead" loading="lazy" decoding="async" referrerpolicy="no-referrer" crossorigin="anonymous" />
+          </div>
+          <figcaption class="team-card__body"><strong>Daniel Okafor</strong><span>Programs Lead</span></figcaption>
+        </figure>
+        <figure class="team-card" data-scroll data-scroll-repeat>
+          <div class="team-card__media">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=800&q=80&auto=format&fit=crop" alt="Rina Sen, community kitchens lead" loading="lazy" decoding="async" referrerpolicy="no-referrer" crossorigin="anonymous" />
+          </div>
+          <figcaption class="team-card__body"><strong>Rina Sen</strong><span>Community Kitchens Lead</span></figcaption>
         </figure>
       </div>
     </div>
