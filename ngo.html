@@ -25,10 +25,10 @@
 <meta http-equiv="X-Frame-Options" content="DENY" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <meta name="format-detection" content="telephone=no" />
-<meta name="theme-color" content="#0a0806" />
+<meta name="theme-color" content="#071b58" />
 
-<title>Aasha Foundation — Education for every child. A warm meal for every elder.</title>
-<meta name="description" content="Aasha Foundation educates underprivileged children and provides daily meals to abandoned elders across 43 countries. 91% of every dollar reaches the field." />
+<title>Aergul Foundation — Together we care, together we change.</title>
+<meta name="description" content="Aergul Foundation empowers communities through education, healthcare, development, environmental protection, and disaster relief." />
 <meta name="robots" content="index, follow" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -44,17 +44,17 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 :root {
-  --bg: #0a0806;
-  --ink: #faf5ef;
-  --muted: #a89a8c;
-  --line: rgba(250, 245, 239, 0.10);
-  --line-2: rgba(250, 245, 239, 0.16);
+  --bg: #071b58;
+  --ink: #f7fbff;
+  --muted: #b7c4df;
+  --line: rgba(247, 251, 255, 0.14);
+  --line-2: rgba(247, 251, 255, 0.24);
 
-  --amber: #f5a524;
-  --amber-2: #fbbf24;
-  --saffron: #ff7847;
-  --teal: #14b8a6;
-  --cream: #f5ede0;
+  --amber: #f3b51b;
+  --amber-2: #ffd452;
+  --saffron: #d99100;
+  --teal: #2f87d8;
+  --cream: #ffffff;
 
   --radius: 22px;
   --font-display: 'Fraunces', Georgia, serif;
@@ -311,11 +311,12 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 
 .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 600; }
 .brand__mark { width: 34px; height: 34px; color: var(--amber); flex: none; }
-.brand__text { font-size: 17px; letter-spacing: -0.01em; }
+.brand__mark path:first-child { stroke: #1749b5; }
+.brand__text { font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; }
 .brand__text em {
   font-family: var(--font-display);
-  font-style: italic; color: var(--amber);
-  margin-left: 4px;
+  font-style: normal; color: var(--amber);
+  margin-left: 5px;
   font-variation-settings: 'opsz' 100;
 }
 .brand__text--lg { font-size: 26px; }
@@ -931,7 +932,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   transition: border-color 0.4s ease, transform 0.4s var(--ease);
 }
 .team-card:hover { border-color: rgba(245, 165, 36, 0.45); transform: translateY(-4px); }
-.team-card__media { aspect-ratio: 4 / 4.6; overflow: hidden; background: #17100b; }
+.team-card__media { aspect-ratio: 4 / 4.6; overflow: hidden; background: #0d2c79; }
 .team-card__media img {
   width: 100%; height: 100%; object-fit: cover;
   filter: saturate(0.82);
@@ -1013,10 +1014,10 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 
 .trust-bar {
   border-block: 1px solid var(--line);
-  background: #0d0a08;
+  background: #0a2469;
 }
 .trust-bar__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); }
-.trust-bar__item { padding: 24px 20px; background: #0d0a08; text-align: center; }
+.trust-bar__item { padding: 24px 20px; background: #0a2469; text-align: center; }
 .trust-bar__item strong { display: block; color: var(--cream); font-family: var(--font-display); font-size: 22px; font-weight: 400; }
 .trust-bar__item span { display: block; margin-top: 5px; color: var(--muted); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; }
 
@@ -1341,7 +1342,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   padding: clamp(30px, 5vw, 64px);
   border: 1px solid var(--line-2);
   border-radius: 28px;
-  background: #0d0a08;
+  background: #0a2469;
 }
 .contact__intro p { color: #d8cbbd; max-width: 42ch; }
 .contact__details { display: grid; gap: 14px; margin-top: 30px; }
@@ -1368,7 +1369,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 .contact__field input::placeholder,
 .contact__field textarea::placeholder { color: #827366; }
 .contact__status { min-height: 1.2em; margin: 0; color: var(--amber); font-size: 13px; }
-.volunteer__panel { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(30px, 6vw, 84px); padding: clamp(30px, 5vw, 64px); border: 1px solid rgba(20, 184, 166, 0.3); border-radius: 28px; background: linear-gradient(135deg, rgba(20, 184, 166, 0.08), #0d0a08 52%); }
+.volunteer__panel { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(30px, 6vw, 84px); padding: clamp(30px, 5vw, 64px); border: 1px solid rgba(47, 135, 216, 0.4); border-radius: 28px; background: linear-gradient(135deg, rgba(47, 135, 216, 0.16), #0a2469 52%); }
 .volunteer__intro p { color: #d8cbbd; max-width: 42ch; }
 .volunteer__perks { display: grid; gap: 10px; margin-top: 28px; color: #c9bbad; font-size: 14px; }
 .volunteer__perks span::before { content: '✓'; margin-right: 10px; color: var(--teal); }
@@ -1393,7 +1394,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   position: relative;
   border-top: 1px solid var(--line);
   padding-block: clamp(64px, 8vw, 96px) 34px;
-  background: #0d0a08;
+  background: #0a2469;
 }
 .footer__grid {
   display: grid;
@@ -1561,7 +1562,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   body::after { display: none; }
   #three-canvas { display: none !important; }
   .section,
-  .strip { background: #0d0a08; }
+  .strip { background: #0a2469; }
   .section { padding-block: 76px; }
   .section::before { display: none; }
   .hero__aurora { opacity: 0.18; filter: blur(36px); }
@@ -1624,14 +1625,15 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 <header class="header" id="header">
   <div class="header__progress"><span id="progressBar"></span></div>
   <div class="header__inner">
-    <a class="brand" href="#hero" data-scroll-to="#hero" aria-label="Aasha Foundation — home">
+    <a class="brand" href="#hero" data-scroll-to="#hero" aria-label="Aergul Foundation — home">
       <span class="brand__mark" aria-hidden="true">
         <svg viewBox="0 0 32 32" fill="none">
-          <path d="M16 29s-11-6.6-11-14.4C5 9.5 9 6 13 6c2 0 3 1 3 1s1-1 3-1c4 0 8 3.5 8 8.6C27 22.4 16 29 16 29Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-          <path d="M16 24c0-5 2-8 5.5-10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="16" cy="16" r="14" stroke="#1749b5" stroke-width="1.4"/>
+          <path d="M8 24 15.5 7l8.5 17M11.2 18h8.8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 14c3.6-2.1 8-2.1 12 0" stroke="#1749b5" stroke-width="1.1" stroke-linecap="round"/>
         </svg>
       </span>
-      <span class="brand__text">Aasha<em>Foundation</em></span>
+      <span class="brand__text">Aergul<em>Foundation</em></span>
     </a>
 
     <nav class="nav" aria-label="Primary">
@@ -1645,8 +1647,8 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
       <a href="#showreel" data-scroll-to="#showreel">Watch</a>
       <a href="#contact" data-scroll-to="#contact">Contact</a>
       <span class="nav__socials" aria-label="Social media">
-        <a href="https://instagram.com/aashafoundation" target="_blank" rel="noopener noreferrer" aria-label="Aasha Foundation on Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-        <a href="https://facebook.com/aashafoundation" target="_blank" rel="noopener noreferrer" aria-label="Aasha Foundation on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V10H8v3h2.6v8h2.9Z"/></svg></a>
+        <a href="https://instagram.com/aergulfoundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://facebook.com/aergulfoundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V10H8v3h2.6v8h2.9Z"/></svg></a>
       </span>
     </nav>
 
@@ -1673,8 +1675,8 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
     <a href="#contact" data-scroll-to="#contact">Contact</a>
     <a href="#donate" data-scroll-to="#donate" class="mobile-menu__cta">Donate</a>
     <span class="mobile-menu__socials" aria-label="Social media">
-      <a href="https://instagram.com/aashafoundation" target="_blank" rel="noopener noreferrer" aria-label="Aasha Foundation on Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
-      <a href="https://facebook.com/aashafoundation" target="_blank" rel="noopener noreferrer" aria-label="Aasha Foundation on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V10H8v3h2.6v8h2.9Z"/></svg></a>
+      <a href="https://instagram.com/aergulfoundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="https://facebook.com/aergulfoundation" target="_blank" rel="noopener noreferrer" aria-label="Aergul Foundation on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V10H8v3h2.6v8h2.9Z"/></svg></a>
     </span>
   </nav>
 </div>
@@ -1715,7 +1717,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
       </h1>
 
       <p class="hero__sub">
-        Aasha means <em>hope</em>. We fund free schooling for children in slums and rural
+          Aergul stands for <em>hope</em>. We fund free schooling for children in slums and rural
         villages, and run community kitchens that serve hot food to abandoned elders —
         every single day, 365 days a year.
       </p>
@@ -1804,7 +1806,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
     <div class="container">
       <div class="mission__grid">
         <div class="mission__left">
-          <span class="eyebrow" data-scroll data-scroll-repeat>Why Aasha exists</span>
+          <span class="eyebrow" data-scroll data-scroll-repeat>Why Aergul exists</span>
           <h2 class="display" data-scroll data-scroll-repeat>
             Two generations. <em>One promise.</em>
           </h2>
@@ -1818,7 +1820,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
             have held them.
           </p>
           <p data-scroll data-scroll-repeat>
-            Aasha exists to close that gap — with tuition, uniforms, notebooks and
+            Aergul exists to close that gap — with tuition, uniforms, notebooks and
             mid-day meals for children, and hot freshly cooked food, medicine and
             companionship for elders who have no one left. No middlemen, no politics —
             just neighbours helping neighbours.
@@ -2127,7 +2129,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
           <span class="eyebrow" data-scroll data-scroll-repeat>Gallery</span>
           <h2 class="display display--sm" data-scroll data-scroll-repeat>Small moments. <em>Real change.</em></h2>
         </div>
-        <p class="section-head__note" data-scroll data-scroll-repeat>Classrooms, community kitchens, and the people who make Aasha possible.</p>
+        <p class="section-head__note" data-scroll data-scroll-repeat>Classrooms, community kitchens, and the people who make Aergul possible.</p>
       </header>
 
       <div class="gallery__features">
@@ -2182,7 +2184,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
       <header class="showreel__head">
         <span class="eyebrow" data-scroll data-scroll-repeat>The film</span>
         <h2 class="display display--sm" data-scroll data-scroll-repeat>
-          Ninety seconds inside <em>a day of Aasha.</em>
+          Ninety seconds inside <em>a day of Aergul.</em>
         </h2>
       </header>
 
@@ -2399,7 +2401,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
           </article>
           <article class="faq__item">
             <button class="faq__question" type="button" aria-expanded="false" aria-controls="faqAnswer3">How can I ask a question directly?</button>
-            <div class="faq__answer" id="faqAnswer3">Use the Contact Us form and send your details through WhatsApp. Your message will be addressed to Aasha Foundation at +91 75619 99167.</div>
+            <div class="faq__answer" id="faqAnswer3">Use the Contact Us form and send your details through WhatsApp. Your message will be addressed to Aergul Foundation at +91 75619 99167.</div>
           </article>
           <article class="faq__item">
             <button class="faq__question" type="button" aria-expanded="false" aria-controls="faqAnswer4">Do you share updates after I donate?</button>
@@ -2455,7 +2457,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
     <div class="container">
       <div class="footer__grid">
         <div class="footer__brand">
-          <span class="brand__text brand__text--lg">Aasha<em>Foundation</em></span>
+          <span class="brand__text brand__text--lg">Aergul<em>Foundation</em></span>
           <p>Educating children. Feeding elders. Since 2011 — across 43 countries.</p>
           <div class="footer__socials">
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer external">Instagram</a>
@@ -2466,7 +2468,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 
         <div class="footer__col">
           <h4>Organisation</h4>
-          <a href="#mission" data-scroll-to="#mission">Why Aasha</a>
+          <a href="#mission" data-scroll-to="#mission">Why Aergul</a>
           <a href="#programs" data-scroll-to="#programs">Programs</a>
           <a href="#impact" data-scroll-to="#impact">Impact</a>
           <a href="#stories" data-scroll-to="#stories">Field notes</a>
@@ -2506,7 +2508,7 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
       </div>
 
       <div class="footer__bottom">
-        <span>© <span id="year"></span> Aasha Foundation · Registered charity 1099882 · FCRA approved</span>
+        <span>© <span id="year"></span> Aergul Foundation · Together we care, together we change.</span>
         <div class="footer__legal">
           <a href="#hero" data-scroll-to="#hero">Privacy</a>
           <a href="#hero" data-scroll-to="#hero">Terms</a>
@@ -3009,7 +3011,7 @@ if (giveBtn) {
       key: RAZORPAY_KEY_ID,
       amount: amount * 100,
       currency: 'INR',
-      name: 'Aasha Foundation',
+      name: 'Aergul Foundation',
       description: `${monthly ? 'Monthly' : 'One-time'} ${impact} donation`,
       image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=128&h=128&q=80&fit=crop',
       handler: (response) => {
@@ -3017,7 +3019,7 @@ if (giveBtn) {
       },
       prefill: { name: donorName, email: '', contact: '' },
       notes: { donorName, impact, frequency: monthly ? 'monthly' : 'one-time' },
-      theme: { color: '#f5a524' },
+      theme: { color: '#f3b51b' },
       modal: { ondismiss: () => { giveBtn.focus(); } },
     });
     checkout.open();
@@ -3083,7 +3085,7 @@ if (volunteerForm) {
     }
 
     const whatsappText = [
-      'Hello Aasha Foundation, I would like to volunteer.',
+      'Hello Aergul Foundation, I would like to volunteer.',
       '',
       `Name: ${name}`,
       `Phone: ${phone}`,
@@ -3113,7 +3115,7 @@ if (contactForm) {
     }
 
     const whatsappText = [
-      'Hello Aasha Foundation,',
+      'Hello Aergul Foundation,',
       '',
       `Name: ${name}`,
       `Phone: ${phone}`,
