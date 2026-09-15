@@ -368,6 +368,8 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
 }
 .mobile-menu a:hover { color: var(--amber); }
 .mobile-menu__cta { color: var(--amber) !important; font-style: italic; }
+.mobile-menu__socials { display: flex; justify-content: center; gap: 10px; }
+.mobile-menu__socials a { font-family: var(--font-body); font-size: 14px; }
 
 /* ============================================================
    8. HERO — the showpiece
@@ -954,8 +956,9 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
-.team-card__socials { display: flex; gap: 8px; margin-top: 18px; }
-.team-card__socials a {
+.nav__socials { display: inline-flex; align-items: center; gap: 8px; margin-left: 2px; }
+.nav__socials a,
+.mobile-menu__socials a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -966,8 +969,11 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
   color: var(--muted);
   transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s var(--ease);
 }
-.team-card__socials a:hover { color: var(--amber); border-color: var(--amber); transform: translateY(-2px); }
-.team-card__socials svg { width: 15px; height: 15px; }
+.nav__socials a:hover,
+.mobile-menu__socials a:hover { color: var(--amber); border-color: var(--amber); transform: translateY(-2px); }
+.nav__socials svg,
+.mobile-menu__socials svg { width: 15px; height: 15px; }
+.team-card__socials { display: none; }
 
 /* ============================================================
   15. Gallery
@@ -1638,6 +1644,10 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
       <a href="#volunteer" data-scroll-to="#volunteer">Volunteer</a>
       <a href="#showreel" data-scroll-to="#showreel">Watch</a>
       <a href="#contact" data-scroll-to="#contact">Contact</a>
+      <span class="nav__socials" aria-label="Social media">
+        <a href="https://instagram.com/aashafoundation" target="_blank" rel="noopener noreferrer" aria-label="Aasha Foundation on Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://facebook.com/aashafoundation" target="_blank" rel="noopener noreferrer" aria-label="Aasha Foundation on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V10H8v3h2.6v8h2.9Z"/></svg></a>
+      </span>
     </nav>
 
     <div class="header__actions">
@@ -1662,6 +1672,10 @@ html.has-scroll-smooth [data-scroll-container] { min-height: 100vh; }
     <a href="#showreel" data-scroll-to="#showreel">Watch</a>
     <a href="#contact" data-scroll-to="#contact">Contact</a>
     <a href="#donate" data-scroll-to="#donate" class="mobile-menu__cta">Donate</a>
+    <span class="mobile-menu__socials" aria-label="Social media">
+      <a href="https://instagram.com/aashafoundation" target="_blank" rel="noopener noreferrer" aria-label="Aasha Foundation on Instagram"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+      <a href="https://facebook.com/aashafoundation" target="_blank" rel="noopener noreferrer" aria-label="Aasha Foundation on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.8c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1V10H8v3h2.6v8h2.9Z"/></svg></a>
+    </span>
   </nav>
 </div>
 
