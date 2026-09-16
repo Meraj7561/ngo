@@ -11,18 +11,25 @@
   default-src 'self';
   script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com https://checkout.razorpay.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
-  font-src https://fonts.gstatic.com;
+  font-src 'self' https://fonts.gstatic.com data:;
   img-src 'self' data: blob: https:;
-  media-src https:;
-  connect-src https:;
+  media-src 'self' https:;
+  connect-src 'self' https:;
   object-src 'none';
+  frame-src 'none';
+  worker-src 'self' blob:;
   base-uri 'self';
-  form-action 'self';
+  form-action 'self' https://wa.me https://pages.razorpay.com;
   frame-ancestors 'none';
+  manifest-src 'self';
   upgrade-insecure-requests;
 " />
 <meta http-equiv="X-Content-Type-Options" content="nosniff" />
 <meta http-equiv="X-Frame-Options" content="DENY" />
+<meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains" />
+<meta http-equiv="Permissions-Policy" content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=()" />
+<meta http-equiv="Cross-Origin-Opener-Policy" content="same-origin" />
+<meta http-equiv="Cross-Origin-Resource-Policy" content="same-origin" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 <meta name="format-detection" content="telephone=no" />
 <meta name="theme-color" content="#071b58" />
