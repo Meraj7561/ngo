@@ -3029,38 +3029,7 @@ updateDonateUI();
 
 if (giveBtn) {
   giveBtn.addEventListener('click', () => {
-    const amount = customAmountStr ? SEC.clampAmount(customAmountStr) : selectedAmount;
-    const donorName = donorNameInput?.value.trim() || '';
-    if (!donorName) {
-      donorNameInput?.focus();
-      if (donorMessage) donorMessage.textContent = 'Please tell us your name so we can thank you properly.';
-      return;
-    }
-    if (RAZORPAY_KEY_ID.includes('REPLACE_WITH_YOUR_KEY_ID')) {
-      window.alert('Razorpay is ready. Add your Razorpay Key ID in ngo.html to enable payments.');
-      return;
-    }
-    if (typeof window.Razorpay !== 'function') {
-      window.alert('Razorpay Checkout could not load. Check your internet connection and try again.');
-      return;
-    }
-
-    const checkout = new window.Razorpay({
-      key: RAZORPAY_KEY_ID,
-      amount: amount * 100,
-      currency: 'INR',
-      name: 'Aergul Foundation',
-      description: `${monthly ? 'Monthly' : 'One-time'} ${impact} donation`,
-      image: 'https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=128&h=128&q=80&fit=crop',
-      handler: (response) => {
-        window.alert(`Payment received. Reference: ${response.razorpay_payment_id}`);
-      },
-      prefill: { name: donorName, email: '', contact: '' },
-      notes: { donorName, impact, frequency: monthly ? 'monthly' : 'one-time' },
-      theme: { color: '#f3b51b' },
-      modal: { ondismiss: () => { giveBtn.focus(); } },
-    });
-    checkout.open();
+    window.open('https://pages.razorpay.com/aergulfoundation', '_blank', 'noopener,noreferrer');
   });
 }
 
