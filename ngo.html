@@ -3029,7 +3029,28 @@ updateDonateUI();
 
 if (giveBtn) {
   giveBtn.addEventListener('click', () => {
-    window.open('https://pages.razorpay.com/aergulfoundation', '_blank', 'noopener,noreferrer');
+    const amount = customAmountStr ? SEC.clampAmount(customAmountStr) : selectedAmount;
+    const donorName = donorNameInput?.value.trim() || '';
+
+    if (!donorName) {
+      donorNameInput?.focus();
+      if (donorMessage) donorMessage.textContent = 'Please enter your name before continuing.';
+      return;
+    }
+
+    if (!amount || Number(amount) <= 0) {
+      customInput?.focus();
+      if (amountNote) amountNote.textContent = 'Please choose or enter a valid donation amount.';
+      return;
+    }
+
+    const donationUrl = new URL('https://pages.razorpay.com/aergulfoundation');
+    donationUrl.searchParams.set('name', donorName);
+    donationUrl.searchParams.set('amount', String(amount));
+    donationUrl.searchParams.set('frequency', monthly ? 'monthly' : 'one-time');
+    donationUrl.searchParams.set('impact', impact);
+
+    window.open(donationUrl.toString(), '_blank', 'noopener,noreferrer');
   });
 }
 
